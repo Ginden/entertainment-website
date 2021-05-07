@@ -8,15 +8,15 @@ const imageUploadHandler: Lifecycle.Method = (request, h) => {
 
 const imageUploadRequestValidator: RouteOptionsValidate = {
   payload: object({
-    file: any()
-  })
+    file: any().meta({ swaggerType: 'file' }),
+  }),
 };
 
 const imageUploadResponseValidator: Schema = object({})
   .unknown(true)
   .label('ImageUploadResponse');
 
-export const imageListRoute: ServerRoute = {
+export const imageUploadRoute: ServerRoute = {
   method: 'POST',
   handler: imageUploadHandler,
   path: `/image/upload`,
@@ -24,6 +24,7 @@ export const imageListRoute: ServerRoute = {
     validate: imageUploadRequestValidator,
     response: {
       schema: imageUploadResponseValidator,
-    }
-  }
+    },
+    tags: ['api'],
+  },
 };

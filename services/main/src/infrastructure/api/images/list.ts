@@ -28,6 +28,7 @@ export const imageListRoute: ServerRoute = {
     validate: imagesListRequestValidator,
     response: {
       schema: imagesListResponseValidator,
-    }
-  }
+    },
+    tags: ['api'],
+  },
 };

@@ -16,7 +16,7 @@ const imageDetailsResponseValidator: Schema = object({})
   .unknown(true)
   .label('ImageDetailsResponse');
 
-export const imageListRoute: ServerRoute = {
+export const singleImageRoute: ServerRoute = {
   method: 'GET',
   handler: imageDetailsHandler,
   path: `/image/{id}`,
@@ -24,6 +24,7 @@ export const imageListRoute: ServerRoute = {
     validate: imageDetailsRequestValidator,
     response: {
       schema: imageDetailsResponseValidator,
-    }
-  }
+    },
+    tags: ['api'],
+  },
 };

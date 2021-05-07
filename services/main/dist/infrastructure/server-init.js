@@ -4,8 +4,8 @@ exports.initServer = void 0;
 const api_1 = require("./api");
 const plugins_1 = require("./plugins");
 async function initServer(s) {
-    await s.register(plugins_1.plugins);
     s.route(api_1.routes);
+    await s.register(plugins_1.plugins);
     await s.initialize();
     await s.start();
 }
