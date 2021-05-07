@@ -24,4 +24,10 @@ export const imageListRoute: ServerRoute = {
   method: 'GET',
   handler: imagesListHandler,
   path: `/image/list`,
+  options: {
+    validate: imagesListRequestValidator,
+    response: {
+      schema: imagesListResponseValidator,
+    }
+  }
 };
