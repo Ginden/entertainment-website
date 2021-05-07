@@ -6,14 +6,6 @@ export const docsPlugin: ServerRegisterPluginObject<HapiSwagger.RegisterOptions>
   options: {
     info: {
       title: 'Funny Images API',
-      contact: {
-        license: {
-          name: 'MIT',
-          url:
-            'https://github.com/Ginden/entertainment-website/blob/main/LICENSE',
-        },
-      },
     },
-    documentationPath: '/_dev/documentation',
   },
 };
