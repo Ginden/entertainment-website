@@ -1,8 +1,8 @@
-import { MigrationInterface, QueryRunner } from "typeorm";
-import { singleLine } from "./src/utils/single-line";
+import { MigrationInterface, QueryRunner } from 'typeorm';
+import { singleLine } from '../../../../utils/single-line';
 
 export class InitImage1620416388439 implements MigrationInterface {
-  name = 'InitImage1620416388439'
+  name = 'InitImage1620416388439';
 
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.query(singleLine`
@@ -26,5 +26,4 @@ export class InitImage1620416388439 implements MigrationInterface {
   public async down(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.query(singleLine`DROP TABLE "image"`);
   }
-
 }

@@ -13,6 +13,7 @@ module.exports = {
   password: process.env.BILDOJ_DB_PASSWORD,
   database: 'bildoj',
   entities: ['dist/db/entities/*.js'],
+  migrations: ['dist/db/migrations/**/*.js'],
   cli: {
     migrationsDir,
   },
