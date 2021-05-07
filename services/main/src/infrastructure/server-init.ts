@@ -1,6 +1,6 @@
-import { Server } from "@hapi/hapi";
-import { routes } from "./api";
-import { plugins } from "./plugins";
+import { Server } from '@hapi/hapi';
+import { routes } from './api';
+import { plugins } from './plugins';
 
 export async function initServer(s: Server): Promise<void> {
   await s.register(plugins);

@@ -2,8 +2,11 @@
   "name": "main",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
+    "build": "rimraf dist && tsc",
+    "lint": "eslint src",
+    "prettier": "prettier --loglevel warn --write 'src/**/*.ts' 'config/*.js' '*.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -34,6 +37,7 @@
     "@typescript-eslint/parser": "^4.22.1",
     "eslint": "^7.25.0",
     "prettier": "^2.2.1",
+    "rimraf": "^3.0.2",
     "typescript": "^4.2.4"
   }
 }

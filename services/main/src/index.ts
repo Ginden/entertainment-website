@@ -1,8 +1,8 @@
-import {Server} from '@hapi/hapi';
+import { Server } from '@hapi/hapi';
 import { get } from 'config';
 import { initServer } from './infrastructure/server-init';
-import { logger } from "./logger";
-import {setTimeout} from 'timers/promises';
+import { logger } from './logger';
+import { setTimeout } from 'timers/promises';
 
 let server: Server | null = null;
 
@@ -11,10 +11,10 @@ function catchException(err: Error) {
   chosenLogger.fatal({
     err,
   });
-  void (server?.stop({timeout: 500}));
+  void server?.stop({ timeout: 500 });
   setTimeout(500).finally(() => {
     process.exit(1);
-  })
+  });
 }
 
 function catchWarning(warning: Error) {
@@ -27,11 +27,10 @@ function catchWarning(warning: Error) {
 if (require.main === module) {
   server = new Server({
     port: get<number>('app.port'),
-    host: get<string>('app.host')
+    host: get<string>('app.host'),
   });
   server.logger = logger;
-  initServer(server)
-    .catch(catchException);
+  initServer(server).catch(catchException);
   process.on('warning', catchWarning);
   process.on('uncaughtException', catchException);
   process.on('unhandledRejection', catchException);

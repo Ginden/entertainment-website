@@ -1,3 +1,3 @@
-import { ServerRoute } from "@hapi/hapi";
+import { ServerRoute } from '@hapi/hapi';
 
 export const routes: ServerRoute[] = [];
