@@ -1,0 +1,6 @@
+version: "3.5"
+services:
+  public-bildoj:
+    container_name: bildoj-api
+    build: ./main/
+

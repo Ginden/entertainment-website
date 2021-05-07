@@ -10,7 +10,7 @@ services:
       POSTGRES_USER: 'bildoj'
       POSTGRES_PASSWORD: "${BILDOJ_DB_PASSWORD}"
       POSTGRES_DB: 'bildoj'
-  public:
+  public-bildoj:
     environment:
       # https://www.postgresql.org/docs/12/libpq-envars.html
       PGUSER: 'bildoj'

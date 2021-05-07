@@ -1,0 +1,12 @@
+build
+dist
+coverage
+node_modules
+docs
+__mocks__/mocks
+.docker
+.git
+lcov-report
+*.log
+*.md
+
