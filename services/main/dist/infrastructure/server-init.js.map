@@ -1,1 +1,0 @@
-{"version":3,"file":"server-init.js","sourceRoot":"","sources":["../../src/infrastructure/server-init.ts"],"names":[],"mappings":";;;AACA,+BAA+B;AAC/B,uCAAoC;AAE7B,KAAK,UAAU,UAAU,CAAC,CAAS;IACxC,CAAC,CAAC,KAAK,CAAC,YAAM,CAAC,CAAC;IAChB,MAAM,CAAC,CAAC,QAAQ,CAAC,iBAAO,CAAC,CAAC;IAC1B,MAAM,CAAC,CAAC,UAAU,EAAE,CAAC;IACrB,MAAM,CAAC,CAAC,KAAK,EAAE,CAAC;AAClB,CAAC;AALD,gCAKC"}
