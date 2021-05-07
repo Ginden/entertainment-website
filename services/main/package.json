@@ -24,7 +24,8 @@
     "joi": "^17.4.0",
     "pino": "^6.11.3",
     "tslib": "^2.2.0",
-    "typeorm": "^0.2.32"
+    "typeorm": "^0.2.32",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@types/config": "0.0.38",
@@ -36,6 +37,7 @@
     "@types/hapi-pino": "^8.0.1",
     "@types/node": "^15.0.2",
     "@types/pino": "^6.3.8",
+    "@types/uuid": "^8.3.0",
     "@typescript-eslint/eslint-plugin": "^4.22.1",
     "@typescript-eslint/parser": "^4.22.1",
     "eslint": "^7.25.0",

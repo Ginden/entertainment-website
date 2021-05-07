@@ -1,14 +1,25 @@
 import { notImplemented } from '@hapi/boom';
 import { Lifecycle, RouteOptionsValidate, ServerRoute } from '@hapi/hapi';
 import { any, object, Schema, string } from 'joi';
+import { HapiFile } from "../../../utils/hapi";
+
+type ImageUploadPayload = {
+  description?: string;
+  source?: string;
+  file: HapiFile,
+}
 
 const imageUploadHandler: Lifecycle.Method = (request, h) => {
+  const payload: ImageUploadPayload = request.payload as any;
+  console.error(payload);
   throw notImplemented();
 };
 
 const imageUploadRequestValidator: RouteOptionsValidate = {
-  payload: object({
-    file: any().meta({ swaggerType: 'file' }),
+  payload: object<ImageUploadPayload>({
+    description: string().optional(),
+    source: string().uri().optional(),
+    file: any().required().meta({ swaggerType: 'file' }),
   }),
 };
 
@@ -24,6 +35,16 @@ export const imageUploadRoute: ServerRoute = {
     validate: imageUploadRequestValidator,
     response: {
       schema: imageUploadResponseValidator,
+    },
+    plugins: {
+      'hapi-swagger': {
+        payloadType: 'form',
+      },
+    },
+    payload: {
+      multipart: {
+        output: 'file',
+      },
     },
     tags: ['api'],
   },
