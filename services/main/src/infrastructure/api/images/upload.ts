@@ -1,13 +1,13 @@
 import { notImplemented } from '@hapi/boom';
 import { Lifecycle, RouteOptionsValidate, ServerRoute } from '@hapi/hapi';
 import { any, object, Schema, string } from 'joi';
-import { HapiFile } from "../../../utils/hapi";
+import { HapiFile } from '../../../utils/hapi';
 
 type ImageUploadPayload = {
   description?: string;
   source?: string;
-  file: HapiFile,
-}
+  file: HapiFile;
+};
 
 const imageUploadHandler: Lifecycle.Method = (request, h) => {
   const payload: ImageUploadPayload = request.payload as any;

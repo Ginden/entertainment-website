@@ -15,6 +15,7 @@
   "dependencies": {
     "@hapi/bell": "^12.2.0",
     "@hapi/boom": "^9.1.2",
+    "@hapi/cookie": "^11.0.2",
     "@hapi/hapi": "^20.1.2",
     "@hapi/inert": "^6.0.3",
     "@hapi/vision": "^6.0.1",
@@ -31,6 +32,7 @@
     "@types/config": "0.0.38",
     "@types/hapi__bell": "^11.0.2",
     "@types/hapi__boom": "^9.0.1",
+    "@types/hapi__cookie": "^10.1.2",
     "@types/hapi__hapi": "^20.0.8",
     "@types/hapi__inert": "^5.2.2",
     "@types/hapi__vision": "^5.5.2",

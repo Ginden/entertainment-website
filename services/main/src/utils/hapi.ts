@@ -3,4 +3,4 @@ export type HapiFile = {
   bytes: number;
   filename: string;
   headers: Record<string, string>;
-}
+};
