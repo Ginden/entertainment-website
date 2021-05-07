@@ -2,7 +2,10 @@ import { notImplemented } from '@hapi/boom';
 import { Lifecycle, RouteOptionsValidate, ServerRoute } from '@hapi/hapi';
 import { array, object, Schema, string } from 'joi';
 import { Queues } from '../../../enums/queues';
-import { nextPageCursorValidation } from '../../../utils/validation';
+import {
+  imageSizeValidation,
+  nextPageCursorValidation,
+} from '../../../utils/validation';
 
 const imagesFeedHandler: Lifecycle.Method = (request, h) => {
   throw notImplemented();
@@ -20,7 +23,11 @@ const imagesFeedRequestValidator: RouteOptionsValidate = {
 const imagesFeedResponseValidator: Schema = object({
   res: array().items(
     object({
-      id: string().uuid(),
+      url: string().uri().example('http://example.com/image.jpg').required(),
+      contentType: string().example('image/jpeg').required(),
+      size: imageSizeValidation.required(),
+      contentDescription: string().optional().allow(null),
+      ocr: string().allow('').default(''),
     })
       .unknown(true)
       .label('ShortImage'),

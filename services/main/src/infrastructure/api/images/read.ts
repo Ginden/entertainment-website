@@ -1,6 +1,10 @@
 import { notImplemented } from '@hapi/boom';
 import { Lifecycle, RouteOptionsValidate, ServerRoute } from '@hapi/hapi';
-import { number, object, Schema, string } from 'joi';
+import { object, Schema, string } from 'joi';
+import {
+  imageSizeValidation,
+  imageUploaderValidation,
+} from '../../../utils/validation';
 
 const imageDetailsHandler: Lifecycle.Method = (request, h) => {
   throw notImplemented();
@@ -13,17 +17,14 @@ const imageDetailsRequestValidator: RouteOptionsValidate = {
 };
 
 const imageDetailsResponseValidator: Schema = object({
+  id: string().uuid().required(),
   url: string().uri().example('http://example.com/image.jpg').required(),
   contentType: string().example('image/jpeg').required(),
-  size: object({
-    width: number().integer().positive().required(),
-    height: number().integer().positive().required(),
-  }).required().label('ImageSize'),
+  size: imageSizeValidation.required(),
   contentDescription: string().optional().allow(null),
   ocr: string().allow('').default(''),
-})
-  .unknown(true)
-  .label('ImageDetailsResponse');
+  author: imageUploaderValidation.allow(null).default(null),
+}).label('ImageDetailsResponse');
 
 export const singleImageRoute: ServerRoute = {
   method: 'GET',

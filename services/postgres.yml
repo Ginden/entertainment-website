@@ -1,0 +1,21 @@
+version: "3.5"
+services:
+  postgres:
+    container_name: bildoj-postgres
+    image: postgres:13-alpine
+    command: postgres -c 'max_connections=250'
+    ports:
+      - 18432:5432
+    environment:
+      POSTGRES_USER: 'bildoj'
+      POSTGRES_PASSWORD: "${BILDOJ_DB_PASSWORD}"
+      POSTGRES_DB: 'bildoj'
+  public:
+    environment:
+      # https://www.postgresql.org/docs/12/libpq-envars.html
+      PGUSER: 'bildoj'
+      PGPASSWORD: "${BILDOJ_DB_PASSWORD}"
+      PGHOST: 'bildoj-postgres'
+      PGPORT: 5432
+      PGDATABASE: 'bildoj'
+
