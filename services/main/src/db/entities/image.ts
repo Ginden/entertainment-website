@@ -7,6 +7,7 @@ import { Basic } from './basic';
 type StorageReference = {
   storage: string;
   path: string;
+  details: object | null;
 };
 
 @Entity()
@@ -18,6 +19,10 @@ type StorageReference = {
   storage: {
     nullable: false,
     type: 'string',
+  },
+  details: {
+    type: 'object',
+    nullable: true,
   },
 })
 export class Image extends Basic {
